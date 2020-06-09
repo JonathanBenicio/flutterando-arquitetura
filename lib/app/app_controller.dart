@@ -1,3 +1,4 @@
+import 'package:arquitetura/app/models/appconfig_model.dart';
 import 'package:flutter/foundation.dart';
 
 class AppController {
@@ -8,8 +9,9 @@ class AppController {
   //construtor privado
   AppController._();
 
-  
-  final themeSwitch = ValueNotifier<bool>(false);
+  final AppConfigModel config = AppConfigModel();
+  bool get isDark => config.themeSwitch.value;
+  ValueNotifier<bool> get themeSwitch => config.themeSwitch;
 
   changeTheme(bool value) {
     themeSwitch.value = value;
